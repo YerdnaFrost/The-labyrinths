@@ -1,0 +1,21 @@
+{
+  "name": "the-labyrinths",
+  "version": "1.0.0",
+  "description": "Игра 'Определитель лабиринта' с минификацией",
+  "main": "src/script.js",
+  "scripts": {
+    "build": "npm run minify-js && npm run minify-css && npm run minify-html",
+    "minify-js": "uglify-js src/script.js -o dist/script.min.js --mangle --compress --comments",
+    "minify-css": "cleancss -o dist/style.min.css src/style.css",
+    "minify-html": "html-minifier --input-dir src/ --output-dir dist/ --file-ext html --remove-comments --collapse-whitespace --minify-css --minify-js",
+    "deploy": "npm run build && git add . && git commit -m 'Build: минифицированная версия' && git push"
+  },
+  "keywords": ["maze", "game", "javascript", "github-pages"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "uglify-js": "^3.17.4",
+    "clean-css": "^5.3.2",
+    "html-minifier": "^4.0.0"
+  }
+}
